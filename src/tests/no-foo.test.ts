@@ -4,6 +4,7 @@ import rule from "../rules/no-foo";
 import fs from "fs";
 import path from "path";
 import vueParser from "vue-eslint-parser";
+import tsParser from "@typescript-eslint/parser";
 
 const validCode = fs.readFileSync(path.join(__dirname, "fixtures", "valid.vue"), "utf-8");
 
@@ -17,8 +18,16 @@ const ruleTester = new RuleTester({
   },
 });
 
+const tsRuleTester = new RuleTester({
+  languageOptions: {
+    parser: tsParser,
+    ecmaVersion: 2020,
+    sourceType: "module",
+  },
+});
+
 describe("no-foo rule", () => {
-  it("runs rule tests", () => {
+  it("runs rule tests for Vue files", () => {
     ruleTester.run("no-foo", rule, {
       valid: [
         {
@@ -49,6 +58,31 @@ const baz = 'also ok'
 <script setup>
 const foo = 'bad'
 </script>
+          `,
+          errors: [
+            {
+              message: "Variable 'foo' is not allowed. Please use a descriptive name.",
+            },
+          ],
+        },
+      ],
+    });
+  });
+
+  it("runs rule tests for TypeScript files", () => {
+    tsRuleTester.run("no-foo", rule, {
+      valid: [
+        {
+          code: `
+const bar: string = 'ok';
+const baz: number = 42;
+          `,
+        },
+      ],
+      invalid: [
+        {
+          code: `
+const foo: string = 'bad';
           `,
           errors: [
             {
