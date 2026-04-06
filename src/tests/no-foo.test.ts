@@ -1,20 +1,20 @@
-import { describe, it } from "vitest";
-import { RuleTester } from "eslint";
-import rule from "../rules/no-foo";
-import fs from "fs";
-import path from "path";
-import vueParser from "vue-eslint-parser";
-import tsParser from "@typescript-eslint/parser";
+import { describe, it } from 'vitest';
+import { RuleTester } from 'eslint';
+import rule from '../rules/no-foo';
+import fs from 'fs';
+import path from 'path';
+import vueParser from 'vue-eslint-parser';
+import tsParser from '@typescript-eslint/parser';
 
-const validCode = fs.readFileSync(path.join(__dirname, "fixtures", "valid.vue"), "utf-8");
+const validCode = fs.readFileSync(path.join(__dirname, 'fixtures', 'valid.vue'), 'utf-8');
 
-const invalidCode = fs.readFileSync(path.join(__dirname, "fixtures", "invalid.vue"), "utf-8");
+const invalidCode = fs.readFileSync(path.join(__dirname, 'fixtures', 'invalid.vue'), 'utf-8');
 
 const ruleTester = new RuleTester({
   languageOptions: {
     parser: vueParser,
     ecmaVersion: 2020,
-    sourceType: "module",
+    sourceType: 'module',
   },
 });
 
@@ -22,16 +22,16 @@ const tsRuleTester = new RuleTester({
   languageOptions: {
     parser: tsParser,
     ecmaVersion: 2020,
-    sourceType: "module",
+    sourceType: 'module',
   },
 });
 
-describe("no-foo rule", () => {
-  it("runs rule tests for Vue files", () => {
-    ruleTester.run("no-foo", rule, {
+describe('no-foo rule', () => {
+  it('runs rule tests for Vue files', () => {
+    ruleTester.run('no-foo', rule, {
       valid: [
         {
-          filename: "test.vue",
+          filename: 'test.vue',
           code: validCode,
         },
         {
@@ -45,7 +45,7 @@ const baz = 'also ok'
       ],
       invalid: [
         {
-          filename: "test.vue",
+          filename: 'test.vue',
           code: invalidCode,
           errors: [
             {
@@ -69,8 +69,8 @@ const foo = 'bad'
     });
   });
 
-  it("runs rule tests for TypeScript files", () => {
-    tsRuleTester.run("no-foo", rule, {
+  it('runs rule tests for TypeScript files', () => {
+    tsRuleTester.run('no-foo', rule, {
       valid: [
         {
           code: `

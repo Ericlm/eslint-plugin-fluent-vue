@@ -1,8 +1,8 @@
-import type { Rule } from "eslint";
+import type { Rule } from 'eslint';
 
 const rule: Rule.RuleModule = {
   meta: {
-    type: "suggestion",
+    type: 'suggestion',
     docs: {
       description: 'Disallow variable declarations named "foo"',
       recommended: false,
@@ -12,9 +12,9 @@ const rule: Rule.RuleModule = {
   create(context) {
     return {
       VariableDeclaration(node) {
-        if (node.kind === "const" || node.kind === "let" || node.kind === "var") {
+        if (node.kind === 'const' || node.kind === 'let' || node.kind === 'var') {
           node.declarations.forEach((declaration) => {
-            if (declaration.id.type === "Identifier" && declaration.id.name === "foo") {
+            if (declaration.id.type === 'Identifier' && declaration.id.name === 'foo') {
               context.report({
                 node,
                 message: "Variable 'foo' is not allowed. Please use a descriptive name.",
