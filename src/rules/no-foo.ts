@@ -5,7 +5,7 @@ const rule: Rule.RuleModule = {
     type: 'suggestion',
     docs: {
       description: 'Disallow variable declarations named "foo"',
-      recommended: false,
+      recommended: true,
     },
     schema: [],
   },
