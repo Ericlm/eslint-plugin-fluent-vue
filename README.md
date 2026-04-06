@@ -25,8 +25,8 @@ Add `fluent-vue` to the plugins section of your `.eslintrc` configuration file:
 
 ### Rules
 
-| Rule | Description |
-|------|-------------|
+| Rule     | Description                                                                 |
+| -------- | --------------------------------------------------------------------------- |
 | `no-foo` | Disallow variable declarations named "foo" in Vue SFC script setup sections |
 
 ## Development

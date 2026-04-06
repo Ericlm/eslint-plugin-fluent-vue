@@ -1,3 +1,3 @@
 <script setup>
-const foo = 'bad'
+const foo = "bad";
 </script>

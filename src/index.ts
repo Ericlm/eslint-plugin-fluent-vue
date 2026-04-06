@@ -1,9 +1,9 @@
-import noFoo from './rules/no-foo'
+import noFoo from "./rules/no-foo";
 
 export const rules = {
-  'no-foo': noFoo
-}
+  "no-foo": noFoo,
+};
 
 export default {
-  rules
-}
+  rules,
+};

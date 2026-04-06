@@ -30,7 +30,6 @@ non-English languages, those may be closed.
 - Make sure `pnpm test` passes. (see [development setup](#development-setup))
 
 - If adding new feature:
-
   - Add accompanying test case.
 
   - Provide convincing reason to add this feature. Ideally you should open a suggestion issue first to discuss with the Maintainers/Community before working on it.
