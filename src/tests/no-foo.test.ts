@@ -1,10 +1,12 @@
 import { describe, it } from 'vitest'
 import { RuleTester } from 'eslint'
-import rule from '../rules/no-foo'
+import { rules } from '../rules.js'
 import fs from 'fs'
 import path from 'path'
 import vueParser from 'vue-eslint-parser'
 import tsParser from '@typescript-eslint/parser'
+
+const rule = rules['no-foo']
 
 const validCode = fs.readFileSync(path.join(__dirname, 'fixtures', 'valid.vue'), 'utf-8')
 
