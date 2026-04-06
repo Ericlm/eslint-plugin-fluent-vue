@@ -49,7 +49,7 @@ const baz = 'also ok'
           code: invalidCode,
           errors: [
             {
-              message: "Variable 'foo' is not allowed. Please use a descriptive name.",
+              messageId: 'noFoo',
             },
           ],
         },
@@ -61,7 +61,7 @@ const foo = 'bad'
           `,
           errors: [
             {
-              message: "Variable 'foo' is not allowed. Please use a descriptive name.",
+              messageId: 'noFoo',
             },
           ],
         },
@@ -86,7 +86,7 @@ const foo: string = 'bad';
           `,
           errors: [
             {
-              message: "Variable 'foo' is not allowed. Please use a descriptive name.",
+              messageId: 'noFoo',
             },
           ],
         },

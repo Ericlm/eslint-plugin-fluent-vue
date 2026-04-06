@@ -7,6 +7,9 @@ const rule: Rule.RuleModule = {
       description: 'Disallow variable declarations named "foo"',
       recommended: true,
     },
+    messages: {
+      noFoo: "Variable 'foo' is not allowed. Please use a descriptive name.",
+    },
     schema: [],
   },
   create(context) {
@@ -17,7 +20,7 @@ const rule: Rule.RuleModule = {
             if (declaration.id.type === 'Identifier' && declaration.id.name === 'foo') {
               context.report({
                 node,
-                message: "Variable 'foo' is not allowed. Please use a descriptive name.",
+                messageId: 'noFoo',
               })
             }
           })
