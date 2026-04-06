@@ -1,14 +1,14 @@
-import { describe, it } from 'vitest';
-import { RuleTester } from 'eslint';
-import rule from '../rules/no-foo';
-import fs from 'fs';
-import path from 'path';
-import vueParser from 'vue-eslint-parser';
-import tsParser from '@typescript-eslint/parser';
+import { describe, it } from 'vitest'
+import { RuleTester } from 'eslint'
+import rule from '../rules/no-foo'
+import fs from 'fs'
+import path from 'path'
+import vueParser from 'vue-eslint-parser'
+import tsParser from '@typescript-eslint/parser'
 
-const validCode = fs.readFileSync(path.join(__dirname, 'fixtures', 'valid.vue'), 'utf-8');
+const validCode = fs.readFileSync(path.join(__dirname, 'fixtures', 'valid.vue'), 'utf-8')
 
-const invalidCode = fs.readFileSync(path.join(__dirname, 'fixtures', 'invalid.vue'), 'utf-8');
+const invalidCode = fs.readFileSync(path.join(__dirname, 'fixtures', 'invalid.vue'), 'utf-8')
 
 const ruleTester = new RuleTester({
   languageOptions: {
@@ -16,7 +16,7 @@ const ruleTester = new RuleTester({
     ecmaVersion: 2020,
     sourceType: 'module',
   },
-});
+})
 
 const tsRuleTester = new RuleTester({
   languageOptions: {
@@ -24,7 +24,7 @@ const tsRuleTester = new RuleTester({
     ecmaVersion: 2020,
     sourceType: 'module',
   },
-});
+})
 
 describe('no-foo rule', () => {
   it('runs rule tests for Vue files', () => {
@@ -66,8 +66,8 @@ const foo = 'bad'
           ],
         },
       ],
-    });
-  });
+    })
+  })
 
   it('runs rule tests for TypeScript files', () => {
     tsRuleTester.run('no-foo', rule, {
@@ -91,6 +91,6 @@ const foo: string = 'bad';
           ],
         },
       ],
-    });
-  });
-});
+    })
+  })
+})

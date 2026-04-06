@@ -1,4 +1,4 @@
-import type { Rule } from 'eslint';
+import type { Rule } from 'eslint'
 
 const rule: Rule.RuleModule = {
   meta: {
@@ -18,13 +18,13 @@ const rule: Rule.RuleModule = {
               context.report({
                 node,
                 message: "Variable 'foo' is not allowed. Please use a descriptive name.",
-              });
+              })
             }
-          });
+          })
         }
       },
-    };
+    }
   },
-};
+}
 
-export default rule;
+export default rule
