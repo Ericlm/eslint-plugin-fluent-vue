@@ -1,16 +1,17 @@
 import { describe, it } from "vitest";
 import { RuleTester } from "eslint";
-import rule from "../src/rules/no-foo";
+import rule from "../rules/no-foo";
 import fs from "fs";
 import path from "path";
+import vueParser from "vue-eslint-parser";
 
 const validCode = fs.readFileSync(path.join(__dirname, "fixtures", "valid.vue"), "utf-8");
 
 const invalidCode = fs.readFileSync(path.join(__dirname, "fixtures", "invalid.vue"), "utf-8");
 
 const ruleTester = new RuleTester({
-  parser: require.resolve("vue-eslint-parser"),
-  parserOptions: {
+  languageOptions: {
+    parser: vueParser,
     ecmaVersion: 2020,
     sourceType: "module",
   },
