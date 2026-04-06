@@ -1,3 +1,9 @@
-export default function hello() {
-  return 'Hello, World!'
+import noFoo from './rules/no-foo'
+
+export const rules = {
+  'no-foo': noFoo
+}
+
+export default {
+  rules
 }
