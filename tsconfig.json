@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "module": "ESNext",
+    "module": "nodenext",
     "lib": ["ESNext"],
     "declaration": true,
     "outDir": "./dist",
@@ -9,7 +9,7 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "moduleResolution": "bundler",
+    "moduleResolution": "nodenext",
     "types": ["node"]
   },
   "include": ["src/**/*"],
