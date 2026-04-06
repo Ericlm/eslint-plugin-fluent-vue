@@ -40,7 +40,8 @@
     "type-check": "tsc --noEmit"
   },
   "lint-staged": {
-    "*.{js,ts}": "eslint --fix"
+    "*.{js,ts}": "eslint --fix",
+    "*.{js,ts,css,md}": "prettier --write"
   },
   "prettier": {
     "printWidth": 100,
